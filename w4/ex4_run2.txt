@@ -1,0 +1,157 @@
+Started by user admin
+Obtained w4/Jenkinsfile from git https://github.com/evan-jk/uml-devops/
+[Pipeline] Start of Pipeline
+[Pipeline] podTemplate
+[Pipeline] {
+[Pipeline] node
+Created Pod: kubernetes devops-tools/ex4-2-h08pt-3vbrj-31t6l
+Agent ex4-2-h08pt-3vbrj-31t6l is provisioned from template ex4_2-h08pt-3vbrj
+---
+apiVersion: "v1"
+kind: "Pod"
+metadata:
+  annotations:
+    buildUrl: "http://jenkins-service.devops-tools.svc.cluster.local:8080/job/ex4/2/"
+    runUrl: "job/ex4/2/"
+  labels:
+    jenkins: "agent"
+    jenkins/label-digest: "535bcf4a0e3052b1fe29fa11ca34c693744490df"
+    jenkins/label: "ex4_2-h08pt"
+  name: "ex4-2-h08pt-3vbrj-31t6l"
+  namespace: "devops-tools"
+spec:
+  containers:
+  - args:
+    - "30d"
+    command:
+    - "sleep"
+    image: "maven:3.8.1-jdk-8"
+    imagePullPolicy: "IfNotPresent"
+    name: "maven"
+    resources: {}
+    tty: false
+    volumeMounts:
+    - mountPath: "/root/.m2/repository"
+      name: "volume-0"
+      readOnly: false
+    - mountPath: "/home/jenkins/agent"
+      name: "workspace-volume"
+      readOnly: false
+  - env:
+    - name: "JENKINS_SECRET"
+      value: "********"
+    - name: "JENKINS_AGENT_NAME"
+      value: "ex4-2-h08pt-3vbrj-31t6l"
+    - name: "JENKINS_NAME"
+      value: "ex4-2-h08pt-3vbrj-31t6l"
+    - name: "JENKINS_AGENT_WORKDIR"
+      value: "/home/jenkins/agent"
+    - name: "JENKINS_URL"
+      value: "http://jenkins-service.devops-tools.svc.cluster.local:8080/"
+    image: "jenkins/inbound-agent:3077.vd69cf116da_6f-3-jdk11"
+    name: "jnlp"
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "100m"
+    volumeMounts:
+    - mountPath: "/root/.m2/repository"
+      name: "volume-0"
+      readOnly: false
+    - mountPath: "/home/jenkins/agent"
+      name: "workspace-volume"
+      readOnly: false
+  nodeSelector:
+    kubernetes.io/os: "linux"
+  restartPolicy: "Never"
+  volumes:
+  - name: "volume-0"
+    persistentVolumeClaim:
+      claimName: "jenkins-pv-claim"
+      readOnly: false
+  - emptyDir:
+      medium: ""
+    name: "workspace-volume"
+
+Running on ex4-2-h08pt-3vbrj-31t6l in /home/jenkins/agent/workspace/ex4
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Get a Maven project)
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/dlambrig/simple-java-maven-app.git
+ > git init /home/jenkins/agent/workspace/ex4 # timeout=10
+Fetching upstream changes from https://github.com/dlambrig/simple-java-maven-app.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+ > git fetch --tags --force --progress -- https://github.com/dlambrig/simple-java-maven-app.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/dlambrig/simple-java-maven-app.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+Checking out Revision 6ada9f6c9c8018ed4d7a0f09c3d59272f2b0f654 (refs/remotes/origin/master)
+Commit message: "Add initial Jenkinsfile"
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 6ada9f6c9c8018ed4d7a0f09c3d59272f2b0f654 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b master 6ada9f6c9c8018ed4d7a0f09c3d59272f2b0f654 # timeout=10
+ > git rev-list --no-walk 6ada9f6c9c8018ed4d7a0f09c3d59272f2b0f654 # timeout=10
+[Pipeline] container
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build a Maven project)
+[Pipeline] sh
++ echo maven build
+maven build
++ mvn -B -DskipTests clean package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.mycompany.app:my-app >----------------------
+[INFO] Building my-app 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ my-app ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven) @ my-app ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ my-app ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/jenkins/agent/workspace/ex4/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ my-app ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/jenkins/agent/workspace/ex4/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ my-app ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/jenkins/agent/workspace/ex4/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ my-app ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/jenkins/agent/workspace/ex4/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ my-app ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ my-app ---
+[INFO] Building jar: /home/jenkins/agent/workspace/ex4/target/my-app-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.730 s
+[INFO] Finished at: 2023-02-13T20:59:22Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // container
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // podTemplate
+[Pipeline] End of Pipeline
+Finished: SUCCESS
