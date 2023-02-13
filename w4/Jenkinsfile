@@ -17,7 +17,7 @@ podTemplate(containers: [
           mvn -B -DskipTests clean package
           '''
           }
-        }
       }
     }
   }
+}
