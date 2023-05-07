@@ -1,0 +1,265 @@
+airflow@airflow-scheduler-866c757869-fs8lj:~$ airflow dags test ex13_python_script
+[2023-04-24T21:12:16.265+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags
+[2023-04-24T21:12:16.975+0000] {dag.py:3682} INFO - dagrun id: ex13_python_script
+/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dag.py:3697 RemovedInAirflow3Warning: Calling `DAG.create_dagrun()` without an explicit data interval is deprecated
+[2023-04-24T21:12:17.002+0000] {dag.py:3699} INFO - created dagrun <DagRun ex13_python_script @ 2023-04-24T21:12:16.264573+00:00: manual__2023-04-24T21:12:16.264573+00:00, state:running, queued_at: None. externally triggered: False>
+[2023-04-24T21:12:17.014+0000] {dag.py:3649} INFO - *****************************************************
+[2023-04-24T21:12:17.014+0000] {dag.py:3653} INFO - Running task ex13_csv_script
+[2023-04-24 21:12:17,483] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=ex13_python_script
+AIRFLOW_CTX_TASK_ID=ex13_csv_script
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-24T21:12:16.264573+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-24T21:12:16.264573+00:00
+[2023-04-24T21:12:17.483+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=ex13_python_script
+AIRFLOW_CTX_TASK_ID=ex13_csv_script
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-24T21:12:16.264573+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-24T21:12:16.264573+00:00
+[2023-04-24 21:12:17,495] {kubernetes_pod.py:815} INFO - Building pod ex13-csv-python-script-1j0spv6f with labels: {'dag_id': 'ex13_python_script', 'task_id': 'ex13_csv_script', 'run_id': 'manual__2023-04-24T211216.2645730000-9c3724235', 'kubernetes_pod_operator': 'True', 'try_number': '1'}
+[2023-04-24T21:12:17.495+0000] {kubernetes_pod.py:815} INFO - Building pod ex13-csv-python-script-1j0spv6f with labels: {'dag_id': 'ex13_python_script', 'task_id': 'ex13_csv_script', 'run_id': 'manual__2023-04-24T211216.2645730000-9c3724235', 'kubernetes_pod_operator': 'True', 'try_number': '1'}
+[2023-04-24 21:12:17,565] {kubernetes_pod.py:476} INFO - Found matching pod ex13-csv-python-script-1j0spv6f with labels {'airflow_kpo_in_cluster': 'True', 'airflow_version': '2.5.3', 'dag_id': 'ex13_python_script', 'kubernetes_pod_operator': 'True', 'run_id': 'manual__2023-04-24T211216.2645730000-9c3724235', 'task_id': 'ex13_csv_script', 'try_number': '1'}
+[2023-04-24T21:12:17.565+0000] {kubernetes_pod.py:476} INFO - Found matching pod ex13-csv-python-script-1j0spv6f with labels {'airflow_kpo_in_cluster': 'True', 'airflow_version': '2.5.3', 'dag_id': 'ex13_python_script', 'kubernetes_pod_operator': 'True', 'run_id': 'manual__2023-04-24T211216.2645730000-9c3724235', 'task_id': 'ex13_csv_script', 'try_number': '1'}
+[2023-04-24 21:12:17,565] {kubernetes_pod.py:477} INFO - `try_number` of task_instance: 1
+[2023-04-24T21:12:17.565+0000] {kubernetes_pod.py:477} INFO - `try_number` of task_instance: 1
+[2023-04-24 21:12:17,566] {kubernetes_pod.py:478} INFO - `try_number` of pod: 1
+[2023-04-24T21:12:17.566+0000] {kubernetes_pod.py:478} INFO - `try_number` of pod: 1
+[2023-04-24T21:12:17.576+0000] {pod_manager.py:187} WARNING - Pod not yet started: ex13-csv-python-script-1j0spv6f
+[2023-04-24T21:12:18.591+0000] {pod_manager.py:187} WARNING - Pod not yet started: ex13-csv-python-script-1j0spv6f
+[2023-04-24T21:12:19.603+0000] {pod_manager.py:187} WARNING - Pod not yet started: ex13-csv-python-script-1j0spv6f
+[2023-04-24T21:12:20.619+0000] {pod_manager.py:187} WARNING - Pod not yet started: ex13-csv-python-script-1j0spv6f
+[2023-04-24T21:12:21.642+0000] {pod_manager.py:235} INFO - /usr/local/lib/python3.6/site-packages/pymysql/_auth.py:8: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+[2023-04-24T21:12:21.642+0000] {pod_manager.py:235} INFO -   from cryptography.hazmat.backends import default_backend
+[2023-04-24T21:12:21.643+0000] {pod_manager.py:235} INFO - PATH: /usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+[2023-04-24T21:12:21.643+0000] {pod_manager.py:235} INFO - HOSTNAME: ex13-csv-python-script-1j0spv6f
+[2023-04-24T21:12:21.644+0000] {pod_manager.py:235} INFO - PYTHONPATH: /root/mount_file
+[2023-04-24T21:12:21.644+0000] {pod_manager.py:235} INFO - AIRFLOW_CONN_MY_MYSQL: {"user": "root", "password": "password", "database"
+[2023-04-24T21:12:21.644+0000] {pod_manager.py:235} INFO - : "db", "host": "mysql.airflow.svc.cluster.local", "port": "3306", "schema": "Orders"}
+[2023-04-24T21:12:21.645+0000] {pod_manager.py:235} INFO -
+[2023-04-24T21:12:21.645+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_SERVICE_PORT: 5432
+[2023-04-24T21:12:21.645+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_HOST: 10.101.227.203
+[2023-04-24T21:12:21.646+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_PORT_STATSD_INGEST: 9125
+[2023-04-24T21:12:21.646+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_PORT_STATSD_SCRAPE: 9102
+[2023-04-24T21:12:21.646+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP: tcp://10.101.227.203:9102
+[2023-04-24T21:12:21.647+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP_PORT: 9102
+[2023-04-24T21:12:21.647+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_SERVICE_HOST: 10.108.203.15
+[2023-04-24T21:12:21.647+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP_ADDR: 10.96.0.1
+[2023-04-24T21:12:21.648+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_SERVICE_PORT_TCP_POSTGRESQL: 5432
+[2023-04-24T21:12:21.648+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP_PROTO: tcp
+[2023-04-24T21:12:21.648+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP: tcp://10.105.165.143:6379
+[2023-04-24T21:12:21.648+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP_PORT: 443
+[2023-04-24T21:12:21.649+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP_PROTO: tcp
+[2023-04-24T21:12:21.649+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP_PROTO: udp
+[2023-04-24T21:12:21.649+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP_ADDR: 10.101.227.203
+[2023-04-24T21:12:21.650+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT: tcp://10.108.203.15:8080
+[2023-04-24T21:12:21.650+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP: tcp://10.108.203.15:8080
+[2023-04-24T21:12:21.650+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP_PORT: 8080
+[2023-04-24T21:12:21.650+0000] {pod_manager.py:235} INFO - KUBERNETES_SERVICE_HOST: 10.96.0.1
+[2023-04-24T21:12:21.651+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_SERVICE_HOST: 10.97.253.221
+[2023-04-24T21:12:21.651+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_SERVICE_PORT_AIRFLOW_UI: 8080
+[2023-04-24T21:12:21.651+0000] {pod_manager.py:235} INFO - KUBERNETES_SERVICE_PORT_HTTPS: 443
+[2023-04-24T21:12:21.652+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT: tcp://10.97.253.221:5432
+[2023-04-24T21:12:21.652+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP_PORT: 5432
+[2023-04-24T21:12:21.652+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_SERVICE_PORT: 6379
+[2023-04-24T21:12:21.653+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP_PROTO: tcp
+[2023-04-24T21:12:21.653+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_SERVICE_PORT: 8080
+[2023-04-24T21:12:21.653+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP_ADDR: 10.108.203.15
+[2023-04-24T21:12:21.653+0000] {pod_manager.py:235} INFO - KUBERNETES_SERVICE_PORT: 443
+[2023-04-24T21:12:21.654+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP: tcp://10.97.253.221:5432
+[2023-04-24T21:12:21.654+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT: udp://10.101.227.203:9125
+[2023-04-24T21:12:21.654+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP: udp://10.101.227.203:9125
+[2023-04-24T21:12:21.654+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP_ADDR: 10.101.227.203
+[2023-04-24T21:12:21.655+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP_PROTO: tcp
+[2023-04-24T21:12:21.655+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP_PROTO: tcp
+[2023-04-24T21:12:21.655+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP_PORT: 6379
+[2023-04-24T21:12:21.656+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP_PORT: 9125
+[2023-04-24T21:12:21.656+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP: tcp://10.96.0.1:443
+[2023-04-24T21:12:21.656+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP_ADDR: 10.97.253.221
+[2023-04-24T21:12:21.656+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT: tcp://10.105.165.143:6379
+[2023-04-24T21:12:21.657+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP_ADDR: 10.105.165.143
+[2023-04-24T21:12:21.657+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_PORT: 9125
+[2023-04-24T21:12:21.657+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT: tcp://10.96.0.1:443
+[2023-04-24T21:12:21.658+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_SERVICE_HOST: 10.105.165.143
+[2023-04-24T21:12:21.658+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_SERVICE_PORT_REDIS_DB: 6379
+[2023-04-24T21:12:21.658+0000] {pod_manager.py:235} INFO - LANG: C.UTF-8
+[2023-04-24T21:12:21.659+0000] {pod_manager.py:235} INFO - GPG_KEY: 0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D
+[2023-04-24T21:12:21.659+0000] {pod_manager.py:235} INFO - PYTHON_VERSION: 3.6.15
+[2023-04-24T21:12:21.659+0000] {pod_manager.py:235} INFO - PYTHON_PIP_VERSION: 21.2.4
+[2023-04-24T21:12:21.660+0000] {pod_manager.py:235} INFO - PYTHON_SETUPTOOLS_VERSION: 57.5.0
+[2023-04-24T21:12:21.660+0000] {pod_manager.py:235} INFO - PYTHON_GET_PIP_URL: https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py
+[2023-04-24T21:12:21.660+0000] {pod_manager.py:235} INFO - PYTHON_GET_PIP_SHA256: c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309
+[2023-04-24T21:12:21.661+0000] {pod_manager.py:235} INFO - HOME: /root
+[2023-04-24T21:12:21.661+0000] {pod_manager.py:235} INFO - {"user": "root", "password": "password", "database"
+[2023-04-24T21:12:21.661+0000] {pod_manager.py:235} INFO - : "db", "host": "mysql.airflow.svc.cluster.local", "port": "3306", "schema": "Orders"}
+[2023-04-24T21:12:21.662+0000] {pod_manager.py:235} INFO -
+[2023-04-24T21:12:21.662+0000] {pod_manager.py:235} INFO - ((1, 'Backordered', datetime.datetime(2020, 6, 1, 12, 0)), (1, 'Shipped', datetime.datetime(2020, 6, 9, 12, 0, 25)), (2, 'Shipped', datetime.datetime(2020, 7, 11, 3, 5)), (1, 'Shipped', datetime.datetime(2020, 6, 9, 11, 50)), (3, 'Shipped', datetime.datetime(2020, 7, 12, 12, 0)), (1, 'Backordered', datetime.datetime(2023, 4, 20, 12, 0)), (1, 'Backordered', datetime.datetime(2022, 7, 8, 8, 0)), (1, 'Shipped', datetime.datetime(2023, 4, 1, 12, 30)), (1, 'Backordered', datetime.datetime(2021, 10, 1, 11, 0)), (1, 'Backordered', datetime.datetime(2023, 4, 22, 7, 45)), (1, 'Shipped', datetime.datetime(2020, 1, 1, 10, 0)), (1, 'Shipped', datetime.datetime(2023, 4, 24, 1, 0)))
+[2023-04-24 21:12:21,723] {kubernetes_pod.py:688} INFO - Deleting pod: ex13-csv-python-script-1j0spv6f
+[2023-04-24T21:12:21.723+0000] {kubernetes_pod.py:688} INFO - Deleting pod: ex13-csv-python-script-1j0spv6f
+[2023-04-24 21:12:21,784] {taskinstance.py:1332} INFO - Marking task as SUCCESS. dag_id=ex13_python_script, task_id=ex13_csv_script, execution_date=20230424T211216, start_date=, end_date=20230424T211221
+[2023-04-24T21:12:21.784+0000] {taskinstance.py:1332} INFO - Marking task as SUCCESS. dag_id=ex13_python_script, task_id=ex13_csv_script, execution_date=20230424T211216, start_date=, end_date=20230424T211221
+[2023-04-24T21:12:21.797+0000] {dag.py:3657} INFO - ex13_csv_script ran successfully!
+[2023-04-24T21:12:21.797+0000] {dag.py:3660} INFO - *****************************************************
+[2023-04-24T21:12:21.797+0000] {dag.py:3649} INFO - *****************************************************
+[2023-04-24T21:12:21.798+0000] {dag.py:3653} INFO - Running task ex13_s3_script
+[2023-04-24 21:12:21,835] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=ex13_python_script
+AIRFLOW_CTX_TASK_ID=ex13_s3_script
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-24T21:12:16.264573+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-24T21:12:16.264573+00:00
+[2023-04-24T21:12:21.835+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=ex13_python_script
+AIRFLOW_CTX_TASK_ID=ex13_s3_script
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-24T21:12:16.264573+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-24T21:12:16.264573+00:00
+[2023-04-24 21:12:21,841] {kubernetes_pod.py:815} INFO - Building pod ex13-s3-python-script-4hnb5g3i with labels: {'dag_id': 'ex13_python_script', 'task_id': 'ex13_s3_script', 'run_id': 'manual__2023-04-24T211216.2645730000-9c3724235', 'kubernetes_pod_operator': 'True', 'try_number': '1'}
+[2023-04-24T21:12:21.841+0000] {kubernetes_pod.py:815} INFO - Building pod ex13-s3-python-script-4hnb5g3i with labels: {'dag_id': 'ex13_python_script', 'task_id': 'ex13_s3_script', 'run_id': 'manual__2023-04-24T211216.2645730000-9c3724235', 'kubernetes_pod_operator': 'True', 'try_number': '1'}
+[2023-04-24 21:12:21,887] {kubernetes_pod.py:476} INFO - Found matching pod ex13-s3-python-script-4hnb5g3i with labels {'airflow_kpo_in_cluster': 'True', 'airflow_version': '2.5.3', 'dag_id': 'ex13_python_script', 'kubernetes_pod_operator': 'True', 'run_id': 'manual__2023-04-24T211216.2645730000-9c3724235', 'task_id': 'ex13_s3_script', 'try_number': '1'}
+[2023-04-24T21:12:21.887+0000] {kubernetes_pod.py:476} INFO - Found matching pod ex13-s3-python-script-4hnb5g3i with labels {'airflow_kpo_in_cluster': 'True', 'airflow_version': '2.5.3', 'dag_id': 'ex13_python_script', 'kubernetes_pod_operator': 'True', 'run_id': 'manual__2023-04-24T211216.2645730000-9c3724235', 'task_id': 'ex13_s3_script', 'try_number': '1'}
+[2023-04-24 21:12:21,887] {kubernetes_pod.py:477} INFO - `try_number` of task_instance: 1
+[2023-04-24T21:12:21.887+0000] {kubernetes_pod.py:477} INFO - `try_number` of task_instance: 1
+[2023-04-24 21:12:21,887] {kubernetes_pod.py:478} INFO - `try_number` of pod: 1
+[2023-04-24T21:12:21.887+0000] {kubernetes_pod.py:478} INFO - `try_number` of pod: 1
+[2023-04-24T21:12:21.896+0000] {pod_manager.py:187} WARNING - Pod not yet started: ex13-s3-python-script-4hnb5g3i
+[2023-04-24T21:12:22.911+0000] {pod_manager.py:187} WARNING - Pod not yet started: ex13-s3-python-script-4hnb5g3i
+[2023-04-24T21:12:23.927+0000] {pod_manager.py:235} INFO - /usr/local/lib/python3.6/site-packages/pymysql/_auth.py:8: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+[2023-04-24T21:12:23.927+0000] {pod_manager.py:235} INFO -   from cryptography.hazmat.backends import default_backend
+[2023-04-24T21:12:23.927+0000] {pod_manager.py:235} INFO - /usr/local/lib/python3.6/site-packages/boto3/compat.py:88: PythonDeprecationWarning: Boto3 will no longer support Python 3.6 starting May 30, 2022. To continue receiving service updates, bug fixes, and security updates please upgrade to Python 3.7 or later. More information can be found here: https://aws.amazon.com/blogs/developer/python-support-policy-updates-for-aws-sdks-and-tools/
+[2023-04-24T21:12:23.928+0000] {pod_manager.py:235} INFO -   warnings.warn(warning, PythonDeprecationWarning)
+[2023-04-24T21:12:23.928+0000] {pod_manager.py:235} INFO - PATH: /usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+[2023-04-24T21:12:23.928+0000] {pod_manager.py:235} INFO - HOSTNAME: ex13-s3-python-script-4hnb5g3i
+[2023-04-24T21:12:23.928+0000] {pod_manager.py:235} INFO - PYTHONPATH: /root/mount_file
+[2023-04-24T21:12:23.929+0000] {pod_manager.py:235} INFO - S3_CONN: {"access": "AKIAQEIRHNZHHZVC5ACL", "secret": "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"}
+[2023-04-24T21:12:23.929+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_SERVICE_HOST: 10.108.203.15
+[2023-04-24T21:12:23.929+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_SERVICE_PORT: 8080
+[2023-04-24T21:12:23.930+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_SERVICE_PORT_AIRFLOW_UI: 8080
+[2023-04-24T21:12:23.930+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP_PORT: 5432
+[2023-04-24T21:12:23.930+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_PORT: 9125
+[2023-04-24T21:12:23.930+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_PORT_STATSD_SCRAPE: 9102
+[2023-04-24T21:12:23.931+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT: udp://10.101.227.203:9125
+[2023-04-24T21:12:23.931+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP_PROTO: tcp
+[2023-04-24T21:12:23.931+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP_PORT: 9125
+[2023-04-24T21:12:23.932+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP_PORT: 8080
+[2023-04-24T21:12:23.932+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_SERVICE_HOST: 10.97.253.221
+[2023-04-24T21:12:23.932+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT: tcp://10.97.253.221:5432
+[2023-04-24T21:12:23.932+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP_ADDR: 10.97.253.221
+[2023-04-24T21:12:23.933+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_SERVICE_PORT_REDIS_DB: 6379
+[2023-04-24T21:12:23.933+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT: tcp://10.105.165.143:6379
+[2023-04-24T21:12:23.933+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP_PORT: 9102
+[2023-04-24T21:12:23.934+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP: tcp://10.108.203.15:8080
+[2023-04-24T21:12:23.934+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP_PROTO: tcp
+[2023-04-24T21:12:23.934+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT: tcp://10.96.0.1:443
+[2023-04-24T21:12:23.935+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP_ADDR: 10.96.0.1
+[2023-04-24T21:12:23.935+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP_PORT: 6379
+[2023-04-24T21:12:23.935+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP_PROTO: udp
+[2023-04-24T21:12:23.936+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP: tcp://10.101.227.203:9102
+[2023-04-24T21:12:23.936+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT: tcp://10.108.203.15:8080
+[2023-04-24T21:12:23.937+0000] {pod_manager.py:235} INFO - KUBERNETES_SERVICE_PORT: 443
+[2023-04-24T21:12:23.937+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP: tcp://10.96.0.1:443
+[2023-04-24T21:12:23.937+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP_PROTO: tcp
+[2023-04-24T21:12:23.937+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP: tcp://10.97.253.221:5432
+[2023-04-24T21:12:23.938+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_PORT_STATSD_INGEST: 9125
+[2023-04-24T21:12:23.938+0000] {pod_manager.py:235} INFO - KUBERNETES_SERVICE_PORT_HTTPS: 443
+[2023-04-24T21:12:23.938+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP: tcp://10.105.165.143:6379
+[2023-04-24T21:12:23.938+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP_ADDR: 10.105.165.143
+[2023-04-24T21:12:23.939+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP: udp://10.101.227.203:9125
+[2023-04-24T21:12:23.939+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP_ADDR: 10.101.227.203
+[2023-04-24T21:12:23.940+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP_PORT: 443
+[2023-04-24T21:12:23.940+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_SERVICE_PORT_TCP_POSTGRESQL: 5432
+[2023-04-24T21:12:23.940+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP_PROTO: tcp
+[2023-04-24T21:12:23.941+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP_PROTO: tcp
+[2023-04-24T21:12:23.941+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP_ADDR: 10.108.203.15
+[2023-04-24T21:12:23.942+0000] {pod_manager.py:235} INFO - KUBERNETES_SERVICE_HOST: 10.96.0.1
+[2023-04-24T21:12:23.942+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_SERVICE_PORT: 5432
+[2023-04-24T21:12:23.942+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_SERVICE_HOST: 10.105.165.143
+[2023-04-24T21:12:23.942+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP_ADDR: 10.101.227.203
+[2023-04-24T21:12:23.943+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_SERVICE_PORT: 6379
+[2023-04-24T21:12:23.943+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_HOST: 10.101.227.203
+[2023-04-24T21:12:23.943+0000] {pod_manager.py:235} INFO - LANG: C.UTF-8
+[2023-04-24T21:12:23.944+0000] {pod_manager.py:235} INFO - GPG_KEY: 0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D
+[2023-04-24T21:12:23.944+0000] {pod_manager.py:235} INFO - PYTHON_VERSION: 3.6.15
+[2023-04-24T21:12:23.944+0000] {pod_manager.py:235} INFO - PYTHON_PIP_VERSION: 21.2.4
+[2023-04-24T21:12:23.945+0000] {pod_manager.py:235} INFO - PYTHON_SETUPTOOLS_VERSION: 57.5.0
+[2023-04-24T21:12:23.945+0000] {pod_manager.py:235} INFO - PYTHON_GET_PIP_URL: https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py
+[2023-04-24T21:12:23.945+0000] {pod_manager.py:235} INFO - PYTHON_GET_PIP_SHA256: c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309
+[2023-04-24T21:12:23.945+0000] {pod_manager.py:235} INFO - HOME: /root
+[2023-04-24T21:12:23.946+0000] {pod_manager.py:235} INFO - {"access": "AKIAQEIRHNZHHZVC5ACL", "secret": "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"}
+[2023-04-24T21:12:23.973+0000] {pod_manager.py:263} WARNING - Pod ex13-s3-python-script-4hnb5g3i log read interrupted but container base still running
+[2023-04-24T21:12:24.986+0000] {pod_manager.py:235} INFO - /usr/local/lib/python3.6/site-packages/pymysql/_auth.py:8: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+[2023-04-24T21:12:24.986+0000] {pod_manager.py:235} INFO -   from cryptography.hazmat.backends import default_backend
+[2023-04-24T21:12:24.987+0000] {pod_manager.py:235} INFO - /usr/local/lib/python3.6/site-packages/boto3/compat.py:88: PythonDeprecationWarning: Boto3 will no longer support Python 3.6 starting May 30, 2022. To continue receiving service updates, bug fixes, and security updates please upgrade to Python 3.7 or later. More information can be found here: https://aws.amazon.com/blogs/developer/python-support-policy-updates-for-aws-sdks-and-tools/
+[2023-04-24T21:12:24.987+0000] {pod_manager.py:235} INFO -   warnings.warn(warning, PythonDeprecationWarning)
+[2023-04-24T21:12:24.987+0000] {pod_manager.py:235} INFO - PATH: /usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+[2023-04-24T21:12:24.987+0000] {pod_manager.py:235} INFO - HOSTNAME: ex13-s3-python-script-4hnb5g3i
+[2023-04-24T21:12:24.988+0000] {pod_manager.py:235} INFO - PYTHONPATH: /root/mount_file
+[2023-04-24T21:12:24.988+0000] {pod_manager.py:235} INFO - S3_CONN: {"access": "AKIAQEIRHNZHHZVC5ACL", "secret": "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"}
+[2023-04-24T21:12:24.988+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_SERVICE_HOST: 10.108.203.15
+[2023-04-24T21:12:24.988+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_SERVICE_PORT: 8080
+[2023-04-24T21:12:24.989+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_SERVICE_PORT_AIRFLOW_UI: 8080
+[2023-04-24T21:12:24.989+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP_PORT: 5432
+[2023-04-24T21:12:24.989+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_PORT: 9125
+[2023-04-24T21:12:24.989+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_PORT_STATSD_SCRAPE: 9102
+[2023-04-24T21:12:24.990+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT: udp://10.101.227.203:9125
+[2023-04-24T21:12:24.990+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP_PROTO: tcp
+[2023-04-24T21:12:24.990+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP_PORT: 9125
+[2023-04-24T21:12:24.991+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP_PORT: 8080
+[2023-04-24T21:12:24.991+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_SERVICE_HOST: 10.97.253.221
+[2023-04-24T21:12:24.991+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT: tcp://10.97.253.221:5432
+[2023-04-24T21:12:24.991+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP_ADDR: 10.97.253.221
+[2023-04-24T21:12:24.992+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_SERVICE_PORT_REDIS_DB: 6379
+[2023-04-24T21:12:24.992+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT: tcp://10.105.165.143:6379
+[2023-04-24T21:12:24.992+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP_PORT: 9102
+[2023-04-24T21:12:24.993+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP: tcp://10.108.203.15:8080
+[2023-04-24T21:12:24.993+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP_PROTO: tcp
+[2023-04-24T21:12:24.993+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT: tcp://10.96.0.1:443
+[2023-04-24T21:12:24.993+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP_ADDR: 10.96.0.1
+[2023-04-24T21:12:24.994+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP_PORT: 6379
+[2023-04-24T21:12:24.994+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP_PROTO: udp
+[2023-04-24T21:12:24.994+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP: tcp://10.101.227.203:9102
+[2023-04-24T21:12:24.995+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT: tcp://10.108.203.15:8080
+[2023-04-24T21:12:24.995+0000] {pod_manager.py:235} INFO - KUBERNETES_SERVICE_PORT: 443
+[2023-04-24T21:12:24.995+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP: tcp://10.96.0.1:443
+[2023-04-24T21:12:24.995+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP_PROTO: tcp
+[2023-04-24T21:12:24.996+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP: tcp://10.97.253.221:5432
+[2023-04-24T21:12:24.996+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_PORT_STATSD_INGEST: 9125
+[2023-04-24T21:12:24.997+0000] {pod_manager.py:235} INFO - KUBERNETES_SERVICE_PORT_HTTPS: 443
+[2023-04-24T21:12:24.997+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP: tcp://10.105.165.143:6379
+[2023-04-24T21:12:24.997+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP_ADDR: 10.105.165.143
+[2023-04-24T21:12:24.997+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP: udp://10.101.227.203:9125
+[2023-04-24T21:12:24.998+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9102_TCP_ADDR: 10.101.227.203
+[2023-04-24T21:12:24.998+0000] {pod_manager.py:235} INFO - KUBERNETES_PORT_443_TCP_PORT: 443
+[2023-04-24T21:12:24.998+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_SERVICE_PORT_TCP_POSTGRESQL: 5432
+[2023-04-24T21:12:24.999+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_PORT_5432_TCP_PROTO: tcp
+[2023-04-24T21:12:24.999+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_PORT_6379_TCP_PROTO: tcp
+[2023-04-24T21:12:24.999+0000] {pod_manager.py:235} INFO - AIRFLOW_WEBSERVER_PORT_8080_TCP_ADDR: 10.108.203.15
+[2023-04-24T21:12:25.000+0000] {pod_manager.py:235} INFO - KUBERNETES_SERVICE_HOST: 10.96.0.1
+[2023-04-24T21:12:25.000+0000] {pod_manager.py:235} INFO - AIRFLOW_POSTGRESQL_SERVICE_PORT: 5432
+[2023-04-24T21:12:25.000+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_SERVICE_HOST: 10.105.165.143
+[2023-04-24T21:12:25.000+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_PORT_9125_UDP_ADDR: 10.101.227.203
+[2023-04-24T21:12:25.001+0000] {pod_manager.py:235} INFO - AIRFLOW_REDIS_SERVICE_PORT: 6379
+[2023-04-24T21:12:25.001+0000] {pod_manager.py:235} INFO - AIRFLOW_STATSD_SERVICE_HOST: 10.101.227.203
+[2023-04-24T21:12:25.001+0000] {pod_manager.py:235} INFO - LANG: C.UTF-8
+[2023-04-24T21:12:25.002+0000] {pod_manager.py:235} INFO - GPG_KEY: 0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D
+[2023-04-24T21:12:25.002+0000] {pod_manager.py:235} INFO - PYTHON_VERSION: 3.6.15
+[2023-04-24T21:12:25.002+0000] {pod_manager.py:235} INFO - PYTHON_PIP_VERSION: 21.2.4
+[2023-04-24T21:12:25.002+0000] {pod_manager.py:235} INFO - PYTHON_SETUPTOOLS_VERSION: 57.5.0
+[2023-04-24T21:12:25.003+0000] {pod_manager.py:235} INFO - PYTHON_GET_PIP_URL: https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py
+[2023-04-24T21:12:25.003+0000] {pod_manager.py:235} INFO - PYTHON_GET_PIP_SHA256: c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309
+[2023-04-24T21:12:25.003+0000] {pod_manager.py:235} INFO - HOME: /root
+[2023-04-24T21:12:25.003+0000] {pod_manager.py:235} INFO - {"access": "AKIAQEIRHNZHHZVC5ACL", "secret": "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"}
+[2023-04-24T21:12:25.070+0000] {pod_manager.py:288} INFO - Pod ex13-s3-python-script-4hnb5g3i has phase Running
+[2023-04-24 21:12:27,098] {kubernetes_pod.py:688} INFO - Deleting pod: ex13-s3-python-script-4hnb5g3i
+[2023-04-24T21:12:27.098+0000] {kubernetes_pod.py:688} INFO - Deleting pod: ex13-s3-python-script-4hnb5g3i
+[2023-04-24 21:12:27,173] {taskinstance.py:1332} INFO - Marking task as SUCCESS. dag_id=ex13_python_script, task_id=ex13_s3_script, execution_date=20230424T211216, start_date=, end_date=20230424T211227
+[2023-04-24T21:12:27.173+0000] {taskinstance.py:1332} INFO - Marking task as SUCCESS. dag_id=ex13_python_script, task_id=ex13_s3_script, execution_date=20230424T211216, start_date=, end_date=20230424T211227
+[2023-04-24T21:12:27.185+0000] {dag.py:3657} INFO - ex13_s3_script ran successfully!
+[2023-04-24T21:12:27.185+0000] {dag.py:3660} INFO - *****************************************************
+[2023-04-24T21:12:27.190+0000] {dagrun.py:607} INFO - Marking run <DagRun ex13_python_script @ 2023-04-24T21:12:16.264573+00:00: manual__2023-04-24T21:12:16.264573+00:00, state:running, queued_at: None. externally triggered: False> successful
+[2023-04-24T21:12:27.193+0000] {dagrun.py:673} INFO - DagRun Finished: dag_id=ex13_python_script, execution_date=2023-04-24T21:12:16.264573+00:00, run_id=manual__2023-04-24T21:12:16.264573+00:00, run_start_date=2023-04-24 21:12:16.264573+00:00, run_end_date=2023-04-24 21:12:27.191499+00:00, run_duration=10.926926, state=success, external_trigger=False, run_type=manual, data_interval_start=2023-04-24T21:12:16.264573+00:00, data_interval_end=2023-04-24T21:12:16.264573+00:00, dag_hash=None
+airflow@airflow-scheduler-866c757869-fs8lj:~$

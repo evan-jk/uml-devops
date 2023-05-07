@@ -1,0 +1,91 @@
+
+
+podTemplate(yaml: '''
+    apiVersion: v1
+    kind: Pod
+    spec:
+      containers:
+      - name: gradle
+        image: gradle:jdk8
+        command:
+        - sleep
+        args:
+        - 99d
+        volumeMounts:
+        - name: shared-storage
+          mountPath: /mnt   
+      - name: centos
+        image: centos
+        command:
+        - sleep
+        args:
+        - 99d     
+      - name: kaniko
+        image: gcr.io/kaniko-project/executor:debug
+        command:
+        - sleep
+        args:
+        - 9999999
+        volumeMounts:
+        - name: shared-storage
+          mountPath: /mnt
+        - name: kaniko-secret
+          mountPath: /kaniko/.docker
+      restartPolicy: Never
+      volumes:
+      - name: shared-storage
+        persistentVolumeClaim:
+          claimName: jenkins-pv-claim
+      - name: kaniko-secret
+        secret:
+            secretName: dockercred
+            items:
+            - key: .dockerconfigjson
+              path: config.json
+''') {
+  node(POD_LABEL) {
+    stage('k8s') {
+      git 'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git'
+      container('gradle') {
+        stage('start the calculator') {
+          sh '''
+          cd /home/jenkins/agent/workspace/test2/Chapter08/sample1
+          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x ./kubectl
+          ./kubectl apply -f calculator.yaml
+          ./kubectl apply -f hazelcast.yaml
+          sleep 30
+          '''
+        }
+      }
+    }
+
+    stage('centos') {
+      container('centos') {
+        stage('test calculator') {
+          sh '''
+          curl -ik -H "Authorization: Bearer $(cat/var/run/secrets/kubernetes.io/serviceaccount/token)" https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT/api/v1/namespaces/default/pods
+          test $(curl calculator-service:8080/div?a=4\\&b=2) -eq 2 && echo 'pass' || 'fail'
+          test $(curl calculator-service:8080/div?a=4\\&b=4) -eq 1 && echo 'pass' || 'fail'
+          test $(curl calculator-service:8080/div?a=4\\&b=8) -eq 0 && echo 'pass' || 'fail'
+          test $(curl calculator-service:8080/div?a=-4\\&b=4) -eq -1 && echo 'pass' || 'fail'
+          test $(curl calculator-service:8080/div?a=-4\\&b=-4) -eq 1 && echo 'pass' || 'fail'
+          result=$(curl -s calculator-service:8080/div?a=4\\&b=0)
+          echo $result
+          [ "$result" = "Division by 0" ] && echo 'pass' || 'fail'
+          '''
+        }
+        stage('remove calculator') {
+          sh'''
+          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x ./kubectl
+          ./kubectl delete service calculator-service
+          ./kubectl delete service hazelcast
+          ./kubectl delete deployment hazelcast
+          ./kubectl delete deployment calculator-deployment
+          '''
+        }
+      }
+    }
+  }
+}
